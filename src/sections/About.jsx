@@ -4,8 +4,10 @@ import { Fade } from 'react-awesome-reveal';
 
 const resumeFile = '/Madhu_Nayani_Resume.pdf';
 
+// --- CHANGE #1: Background removed to show global pattern ---
 const AboutSectionWrapper = styled.section`
   padding: 10rem 4%;
+  /* The previous carbon fiber background styles have been removed */
 `;
 
 const AboutContainer = styled.div`
@@ -47,11 +49,20 @@ const DownloadButton = styled.a`
   transition: all 0.3s ease;
   &:hover {
     background: var(--accent-blue);
-    color: var(--primary-black);
+    color: #0d0d0d; /* Using the new dark color for text */
   }
 `;
 
-const SkillsContainer = styled.div``;
+// --- CHANGE #2: Blueprint grid removed ---
+const SkillsContainer = styled.section`
+  padding: 2.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  
+  /* The grid background is replaced with a simple, dark panel color */
+  background-color: rgba(15, 17, 21, 0.5); /* Semi-transparent dark panel */
+  backdrop-filter: blur(5px); /* Optional: Adds a "glassy" effect */
+`;
 
 const SubHeading = styled.h3`
   font-family: 'Roboto Condensed', sans-serif;
@@ -62,7 +73,6 @@ const SubHeading = styled.h3`
   color: var(--primary-white);
 `;
 
-// --- FIX #1: ENLARGED SKILL BOXES ---
 const SkillsGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -70,9 +80,9 @@ const SkillsGrid = styled.div`
   div {
     background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid #333;
-    padding: 0.9rem 1.5rem; /* Increased padding */
+    padding: 0.9rem 1.5rem;
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: 1.05rem; /* Increased font size */
+    font-size: 1.05rem;
     border-radius: 4px;
     transition: all 0.3s ease;
     &:hover {
@@ -83,9 +93,7 @@ const SkillsGrid = styled.div`
   }
 `;
 
-
 const About = () => {
-  // --- FIX #2: SKILL ARRAYS RESTORED ---
   const mernSkills = [ "React", "Node.js", "Express.js", "MongoDB", "JavaScript", "REST API", "Authentication", "Authorization", "JWT", "OAuth 2.0", "HTML5", "CSS3", "Git", "GitHub", "Responsive Design", "Redux", "Docker", "CI/CD", "AWS", "Vercel", "Postman", "ES6+", ];
   const dataScienceSkills = [ "Python", "LangChain", "RAG", "Ollama", "OpenAI API", "LlamaIndex", "BERT", "GPT", "LLaMA", "Prompt Engineering", "NumPy", "Pandas", "Scikit-learn", "TensorFlow", "PyTorch", "CNN", "RNN", "LSTM", "Vector Databases", "Chroma DB", "FAISS", "Matplotlib", "Azure AI Search", ];
 
@@ -96,7 +104,6 @@ const About = () => {
           <Fade direction="up" duration={500} triggerOnce>
             <h2>The Driver's Seat 🏁</h2>
             <p>I'm a Full Stack Developer who thrives at the intersection of high-performance code and elegant design. My toolkit is the MERN stack, but my philosophy is drawn from the world of precision automotive engineering. I build robust, scalable, and intelligent web applications that are built to perform under pressure.</p>
-            {/* --- FIX #3: BUTTON TEXT UPDATED --- */}
             <DownloadButton href={resumeFile} download="Madhu_Nayani_Resume.pdf">
               The Driver Dossier 📂
             </DownloadButton>
@@ -122,4 +129,3 @@ const About = () => {
 };
 
 export default About;
-

@@ -73,12 +73,12 @@ const CopyrightNotice = styled.p`
 
 const Footer = () => {
   const navLinks = [
-    { name: 'The Ignition', href: '#ignition' },
-    { name: "The Driver's Seat", href: '#drivers-seat' },
-    { name: 'The Test Bench', href: '#test-bench' },
-    { name: 'The Garage', href: '#garage' },
-    { name: 'The Blueprint', href: '#blueprint' },
-    { name: 'The Pitstop', href: '#pitstop' },
+    { name: 'The Ignition 💥', href: '#ignition' },
+    { name: "The Driver's Seat 💺", href: '#drivers-seat' },
+    { name: 'The Test Bench 🛋', href: '#test-bench' },
+    { name: 'The Garage 🛠️', href: '#garage' },
+    { name: 'The Blueprint 🗺️', href: '#blueprint' },
+    { name: 'The Pitstop ⛽', href: '#pitstop' },
   ];
 
   const socialMediaLinks = [
