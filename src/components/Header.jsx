@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import ThemeToggle from './ThemeToggle'; // Make sure this path is correct
 
 const profileImage = '/images/profile-photo.jpg';
 
@@ -146,15 +145,13 @@ const MobileNav = styled.nav`
   }
 `;
 
-// --- The Header Component with Updated Thematic Terms ---
-const Header = ({ toggleTheme, currentTheme }) => { // <-- Props are received here
+// The component no longer accepts any props for theme switching.
+const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -168,23 +165,22 @@ const Header = ({ toggleTheme, currentTheme }) => { // <-- Props are received he
         
         <DesktopNavLinks>
           <a href="#driver-seat">The Driver's Seat 🏁</a>
-          <a href="#garage">The Garage 🚗</a>
+          <a href="#test-bench">The Test Bench 🧪</a>
+          <a href="#garage">The Garage 🛠️</a>
+          <a href="#blueprint">The Blueprint 📐</a>
           <a href="#pitstop">The Pitstop 🏎️</a>
-          
-          {/* --- FIX IS HERE: Pass the props to the ThemeToggle button --- */}
-          <ThemeToggle toggleTheme={toggleTheme} currentTheme={currentTheme} />
         </DesktopNavLinks>
         
         <Hamburger $isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
-          <span />
-          <span />
-          <span />
+          <span /><span /><span />
         </Hamburger>
       </Nav>
       
       <MobileNav className={isOpen ? 'open' : ''}>
         <a href="#driver-seat" onClick={() => setIsOpen(false)}>The Driver's Seat 🏁</a>
-        <a href="#garage" onClick={() => setIsOpen(false)}>The Garage 🚗</a>
+        <a href="#test-bench" onClick={() => setIsOpen(false)}>The Test Bench 🧪</a>
+        <a href="#garage" onClick={() => setIsOpen(false)}>The Garage 🛠️</a>
+        <a href="#blueprint" onClick={() => setIsOpen(false)}>The Blueprint 📐</a>
         <a href="#pitstop" onClick={() => setIsOpen(false)}>The Pitstop 🏎️</a>
       </MobileNav>
     </>
@@ -192,3 +188,4 @@ const Header = ({ toggleTheme, currentTheme }) => { // <-- Props are received he
 };
 
 export default Header;
+

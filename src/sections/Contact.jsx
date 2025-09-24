@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import emailjs from '@emailjs/browser';
+import { Fade } from 'react-awesome-reveal';
 
-// --- No changes to styled-components ---
+// --- No changes to your styled-components ---
 const ContactContainer = styled.div`
   max-width: 800px;
   margin: 0 auto;
@@ -55,9 +56,7 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     setStatus('Sending...');
-
-    emailjs
-      .sendForm(
+    emailjs.sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         form.current,
@@ -77,29 +76,25 @@ const Contact = () => {
   };
 
   return (
-    // --- CHANGE MADE HERE ---
     <ContactContainer id='pitstop'>
-      {/* --- CHANGE MADE HERE --- */}
-      <h2>The Pitstop 🏎️</h2>
-      <p>
-        Have a project, a question, or just want to talk shop? 
-        <br />
-        Pull in for a quick refuel and connection.
-      </p>
-      <Form ref={form} onSubmit={sendEmail}>
-        <FormField>
-          <Input type="text" name="user_name" required placeholder="Your Name" />
-        </FormField>
-        <FormField>
-          <Input type="email" name="user_email" required placeholder="Your Email" />
-        </FormField>
-        <FormField>
-          <TextArea name="message" required placeholder="Your Message"></TextArea>
-        </FormField>
-        <SubmitButton type="submit" disabled={status === 'Sending...'}>
-          {status === 'Sending...' ? 'Sending...' : 'Send Message'}
-        </SubmitButton>
-      </Form>
+      <Fade direction="up" triggerOnce>
+        <h2>The Pitstop 🏎️</h2>
+        <p>
+          Have a project, a question, or just want to talk shop? 
+          <br />
+          Pull in for a quick refuel and connection.
+        </p>
+      </Fade>
+      <Fade direction="up" delay={300} triggerOnce>
+        <Form ref={form} onSubmit={sendEmail}>
+          <FormField><Input type="text" name="user_name" required placeholder="Your Name" /></FormField>
+          <FormField><Input type="email" name="user_email" required placeholder="Your Email" /></FormField>
+          <FormField><TextArea name="message" required placeholder="Your Message"></TextArea></FormField>
+          <SubmitButton type="submit" disabled={status === 'Sending...'}>
+            {status === 'Sending...' ? 'Sending...' : 'Send Message'}
+          </SubmitButton>
+        </Form>
+      </Fade>
       {status && <StatusMessage success={status.includes('successfully')}>{status}</StatusMessage>}
     </ContactContainer>
   );

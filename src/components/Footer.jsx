@@ -1,73 +1,118 @@
+// Location: src/components/Footer.jsx
+
 import React from 'react';
 import styled from 'styled-components';
+// Import icons from their respective sets
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6'; // Correct import for the "X" icon
 
 const FooterContainer = styled.footer`
-  background-color: #0c0c0c;
-  padding: 4rem 4%;
-  color: rgba(255, 255, 255, 0.5);
+  padding: 4rem 4% 2rem;
+  text-align: center;
+  border-top: 1px solid #333;
+  background-color: #0a0a0a;
 `;
 
-const FooterGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto 3rem auto;
+const SiteNavWrapper = styled.div`
+  margin-bottom: 3rem;
   
   h4 {
-    color: var(--primary-white);
     font-family: 'Roboto Condensed', sans-serif;
+    color: var(--primary-white);
+    font-size: 1.2rem;
     text-transform: uppercase;
     margin-bottom: 1.5rem;
     letter-spacing: 1px;
   }
-  
+
+  nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
   a {
-    display: block;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--accent-blue);
     text-decoration: none;
-    margin-bottom: 0.8rem;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
     transition: color 0.3s ease;
-    
+
     &:hover {
       color: var(--primary-white);
     }
   }
 `;
 
-const Copyright = styled.div`
-  text-align: center;
-  border-top: 1px solid #222;
-  padding-top: 2rem;
+const SocialLinks = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+
+  a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: var(--accent-blue);
+      transform: translateY(-3px);
+    }
+  }
+`;
+
+const CopyrightNotice = styled.p`
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Roboto', sans-serif;
   font-size: 0.9rem;
+  margin-top: 2rem;
 `;
 
 const Footer = () => {
+  const navLinks = [
+    { name: 'The Ignition', href: '#ignition' },
+    { name: "The Driver's Seat", href: '#drivers-seat' },
+    { name: 'The Test Bench', href: '#test-bench' },
+    { name: 'The Garage', href: '#garage' },
+    { name: 'The Blueprint', href: '#blueprint' },
+    { name: 'The Pitstop', href: '#pitstop' },
+  ];
+
+  const socialMediaLinks = [
+    { name: 'GitHub', url: '#', icon: <FaGithub /> },
+    { name: 'LinkedIn', url: '#', icon: <FaLinkedin /> },
+    // --- FIX: Using the correct icon and name for "X" ---
+    { name: 'X', url: '#', icon: <FaXTwitter /> },
+  ];
+
   return (
-    <FooterContainer>
-      <FooterGrid>
-        <div>
-          <h4>Madhu Nayani</h4>
-          <p>MERN Stack & Data Science Developer</p>
-        </div>
-        <div>
-          <h4>Explore</h4>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div>
-          <h4>Connect</h4>
-          <a href="https://www.linkedin.com/in/madhu-nayani" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://github.com/SaiHemanth17" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://x.com/Madhu17" target="_blank" rel="noopener noreferrer">Twitter</a>
-        </div>
-      </FooterGrid>
-      <Copyright>
-        © {new Date().getFullYear()} Madhu Sai Hemanth Nayani. All Rights Reserved.
-      </Copyright>
+    <FooterContainer id="pitstop">
+      <SiteNavWrapper>
+        <h4>Site Contents</h4>
+        <nav>
+          {navLinks.map(link => (
+            <a key={link.name} href={link.href}>{link.name}</a>
+          ))}
+        </nav>
+      </SiteNavWrapper>
+
+      <SocialLinks>
+        {socialMediaLinks.map(social => (
+          <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.name}>
+            {social.icon}
+          </a>
+        ))}
+      </SocialLinks>
+
+      <CopyrightNotice>
+        &copy; {new Date().getFullYear()} Madhu Nayani. All Rights Reserved.
+      </CopyrightNotice>
     </FooterContainer>
   );
 };
 
 export default Footer;
+
