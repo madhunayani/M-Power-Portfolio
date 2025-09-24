@@ -1,0 +1,59 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&family=Roboto+Condensed:wght@700&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --primary-black: #000000;
+  --primary-white: #FFFFFF;
+  --accent-blue: #00AEEF;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: 
+    radial-gradient(ellipse at center, rgba(30,30,30,1) 0%, rgba(0,0,0,1) 80%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  color: var(--primary-white);
+  font-family: 'Roboto', sans-serif; /* Default font for paragraphs */
+  overflow-x: hidden;
+}
+
+/* Serif font for main, impactful headlines */
+h1, .serif-heading {
+  font-family: 'Playfair Display', serif; 
+}
+
+/* Sans-serif for section titles and subheadings */
+h2, h3 {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 8%;
+  box-sizing: border-box;
+}
+
+.btn {
+  background: transparent;
+  border: 1px solid var(--accent-blue);
+  color: var(--accent-blue);
+  padding: 12px 24px;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--accent-blue);
+  color: var(--primary-black);
+}
