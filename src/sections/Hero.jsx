@@ -47,42 +47,27 @@ const Subtitle = styled(motion.p)`
 `;
 
 
-const CTAButton = styled(motion.a)`
-  border: 2px solid var(--primary-white);
-  color: var(--primary-white);
-  padding: 15px 35px;
-  font-size: 1rem;
-  text-transform: uppercase;
+const CTAButton = styled.a`
+  display: inline-block;
+  margin-top: 2.5rem;
+  padding: 1rem 3rem;
+  border: 2px solid var(--accent-blue);
+  color: var(--accent-blue);
+  background-color: transparent;
   text-decoration: none;
-  font-weight: 700;
-  letter-spacing: 1px;
-  position: relative;
-  overflow: hidden;
-  background: transparent;
-  cursor: pointer;
-  z-index: 1;
-  display: inline-block;  /* ✅ keeps ::before bound to the button */
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;  /* ✅ anchor inside the button */
-    width: 100%;
-    height: 100%;
-    background-color: var(--primary-white);
-    transform: scaleX(0);  /* ✅ starts invisible */
-    transform-origin: left;  /* ✅ grows from left edge */
-    transition: transform 0.4s ease-in-out;
-    z-index: -1;  /* ✅ stays behind text */
-  }
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease-in-out;
 
   &:hover {
-    color: var(--primary-black);
-  }
-
-  &:hover::before {
-    transform: scaleX(1);  /* ✅ smooth fill from left to right */
+    background-color: var(--accent-blue);
+    /* --- THIS IS THE FIX --- */
+    color: #0d0d0d; /* Change text to your deep black base color */
+    
+    box-shadow: var(--glow-blue); /* Optional: Add the glow effect */
+    transform: translateY(-3px);
   }
 `;
 
