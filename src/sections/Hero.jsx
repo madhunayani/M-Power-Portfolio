@@ -2,13 +2,10 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
 
+// --- No changes to keyframes or styled-components ---
 const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 `;
 
 const HeroContainer = styled.section`
@@ -19,26 +16,21 @@ const HeroContainer = styled.section`
   align-items: center;
   text-align: center;
   padding: 0 4%;
-  // Optional: Add a subtle background image here
-  // background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/path/to/your/image.jpg');
-  // background-size: cover;
 `;
 
-
 const Title = styled(motion.h1)`
-  font-family: 'Playfair Display', serif; /* Explicitly use the serif font */
+  font-family: 'Playfair Display', serif;
   font-size: 5rem;
   color: var(--primary-white);
   margin-bottom: 1.5rem;
   font-weight: 700;
-  text-transform: none; /* Serif fonts often look better without uppercase */
+  text-transform: none;
   letter-spacing: 1px;
 
   @media (max-width: 768px) {
     font-size: 3rem;
   }
 `;
-
 
 const Subtitle = styled(motion.p)`
   font-size: 1.25rem;
@@ -88,7 +80,8 @@ const CTAButton = styled(motion.a)`
 
 const Hero = () => {
   return (
-    <HeroContainer id="hero">
+    // --- CHANGE MADE HERE ---
+    <HeroContainer id="ignition"> {/* id updated to "ignition" */}
       <Title
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -104,17 +97,16 @@ const Hero = () => {
         MERN Stack & Data Science Developer with an Engineer's precision and a Gearhead's passion. I don't just write code—I engineer high-performance digital experiences.
       </Subtitle>
       <CTAButton
-        href="#projects"
+        href="#garage"
         className="btn"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
       >
-        View My Work
+        View The Garage
       </CTAButton>
     </HeroContainer>
   );
 };
 
 export default Hero;
-

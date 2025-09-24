@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
+import ThemeToggle from './ThemeToggle'; // Make sure this path is correct
 
-// This is the path to your new profile photo.
 const profileImage = '/images/profile-photo.jpg';
 
+// --- Styled Components (No changes needed here) ---
 const Nav = styled.header`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   box-sizing: border-box;
-  padding: 0.75rem 4%; /* Slightly adjusted padding for the image */
+  padding: 0.75rem 4%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,15 +21,14 @@ const Nav = styled.header`
   backdrop-filter: ${props => props.$scrolled ? 'blur(10px)' : 'none'};
 `;
 
-// The Logo component is now styled to hold an image perfectly.
 const Logo = styled.a`
   display: flex;
   align-items: center;
   z-index: 1002;
 
   img {
-    height: 50px; /* NEW, larger size */
-    width: 50px;  /* NEW, larger size */
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--primary-white);
@@ -36,7 +36,9 @@ const Logo = styled.a`
 `;
 
 const DesktopNavLinks = styled.nav`
-  /* No changes here */
+  display: flex;
+  align-items: center;
+  
   a {
     font-family: 'Roboto Condensed', sans-serif;
     color: var(--primary-white);
@@ -72,7 +74,6 @@ const DesktopNavLinks = styled.nav`
 `;
 
 const Hamburger = styled.div`
-  /* No changes here, this is our clean, transient-prop version */
   display: none;
   flex-direction: column;
   justify-content: space-around;
@@ -113,7 +114,6 @@ const Hamburger = styled.div`
 `;
 
 const MobileNav = styled.nav`
-  /* No changes here */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -146,7 +146,8 @@ const MobileNav = styled.nav`
   }
 `;
 
-const Header = () => {
+// --- The Header Component with Updated Thematic Terms ---
+const Header = ({ toggleTheme, currentTheme }) => { // <-- Props are received here
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -161,15 +162,17 @@ const Header = () => {
   return (
     <>
       <Nav $scrolled={scrolled}>
-        {/* The text logo is replaced with this image logo */}
-        <Logo href="/">
+        <Logo href="#ignition">
           <img src={profileImage} alt="Madhu Nayani Profile" />
         </Logo>
         
         <DesktopNavLinks>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+          <a href="#driver-seat">The Driver's Seat 🏁</a>
+          <a href="#garage">The Garage 🚗</a>
+          <a href="#pitstop">The Pitstop 🏎️</a>
+          
+          {/* --- FIX IS HERE: Pass the props to the ThemeToggle button --- */}
+          <ThemeToggle toggleTheme={toggleTheme} currentTheme={currentTheme} />
         </DesktopNavLinks>
         
         <Hamburger $isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
@@ -180,9 +183,9 @@ const Header = () => {
       </Nav>
       
       <MobileNav className={isOpen ? 'open' : ''}>
-        <a href="#about" onClick={() => setIsOpen(false)}>About</a>
-        <a href="#projects" onClick={() => setIsOpen(false)}>Projects</a>
-        <a href="#contact" onClick={() => setIsOpen(false)}>Contact</a>
+        <a href="#driver-seat" onClick={() => setIsOpen(false)}>The Driver's Seat 🏁</a>
+        <a href="#garage" onClick={() => setIsOpen(false)}>The Garage 🚗</a>
+        <a href="#pitstop" onClick={() => setIsOpen(false)}>The Pitstop 🏎️</a>
       </MobileNav>
     </>
   );

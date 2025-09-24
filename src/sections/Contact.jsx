@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import emailjs from '@emailjs/browser';
 
-// --- Styled Components (No changes here, keep them as they are) ---
+// --- No changes to styled-components ---
 const ContactContainer = styled.div`
   max-width: 800px;
   margin: 0 auto;
@@ -47,12 +47,10 @@ const StatusMessage = styled.p`
   font-weight: bold;
   color: ${props => (props.success ? 'lightgreen' : 'lightcoral')};
 `;
-// --- End of Styled Components ---
-
 
 const Contact = () => {
   const form = useRef();
-  const [status, setStatus] = useState(''); // To show 'Sending...', 'SUCCESS!', or 'FAILED...'
+  const [status, setStatus] = useState('');
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -69,7 +67,7 @@ const Contact = () => {
         (result) => {
           console.log('SUCCESS!', result.text);
           setStatus('Message sent successfully!');
-          form.current.reset(); // Clear the form
+          form.current.reset();
         },
         (error) => {
           console.log('FAILED...', error.text);
@@ -79,16 +77,17 @@ const Contact = () => {
   };
 
   return (
-    <ContactContainer id='contact' >
-      <h2>Get In Touch</h2>
+    // --- CHANGE MADE HERE ---
+    <ContactContainer id='pitstop'>
+      {/* --- CHANGE MADE HERE --- */}
+      <h2>The Pitstop 🏎️</h2>
       <p>
-        Have a project in mind or just want to talk about code and cars?
+        Have a project, a question, or just want to talk shop? 
         <br />
-        Use the form below to drop me a line.
+        Pull in for a quick refuel and connection.
       </p>
       <Form ref={form} onSubmit={sendEmail}>
         <FormField>
-          {/* Ensure the 'name' attribute matches your EmailJS template */}
           <Input type="text" name="user_name" required placeholder="Your Name" />
         </FormField>
         <FormField>
@@ -107,4 +106,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

@@ -15,7 +15,6 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-lazy-load-image-component": "^1.6.3",
-    "react-parallax": "^3.5.2",
     "styled-components": "^6.1.19"
   },
   "devDependencies": {
