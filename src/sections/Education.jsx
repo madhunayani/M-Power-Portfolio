@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Fade } from "react-awesome-reveal";
-import { FaGraduationCap } from 'react-icons/fa';
 
 const EducationContainer = styled.section`
   padding: 6rem 4%;
-  background-color: var(--background-color, #000);
 `;
 
 const SectionTitle = styled.h2`
@@ -31,6 +29,13 @@ const Timeline = styled.div`
     left: 50%;
     margin-left: -2px;
   }
+
+  /* --- FIX: Media query to adjust timeline on mobile --- */
+  @media (max-width: 768px) {
+    &::after {
+      left: 20px; /* Move timeline to the left */
+    }
+  }
 `;
 
 const TimelineItem = styled.div`
@@ -39,7 +44,6 @@ const TimelineItem = styled.div`
   width: 50%;
   box-sizing: border-box;
 
-  /* The blue circle on the timeline */
   &::after {
     content: '';
     position: absolute;
@@ -61,6 +65,18 @@ const TimelineItem = styled.div`
     left: 50%;
     &::after { left: -14.5px; }
   }
+
+  /* --- FIX: Media query to make cards full-width --- */
+  @media (max-width: 768px) {
+    width: 100%;
+    left: 0 !important; /* Override inline style for even items */
+    padding-left: 60px; /* Add space for the new timeline position */
+    padding-right: 15px;
+
+    &::after {
+      left: 8px; /* Position the circle on the new timeline */
+    }
+  }
 `;
 
 const TimelineContent = styled.div`
@@ -71,22 +87,26 @@ const TimelineContent = styled.div`
   border-radius: 6px;
   text-align: left;
   
-  /* The graduation cap icon */
   &::before {
-    content: '🎓'; /* Using the emoji directly */
-    font-family: sans-serif; /* Ensures the emoji renders correctly */
+    content: '🎓';
+    font-family: sans-serif;
     position: absolute;
     top: -20px;
     font-size: 2rem;
     color: var(--accent-blue);
+    left: 20px;
   }
-  
-  &:nth-child(odd) &::before { left: 20px; }
-  &:nth-child(even) &::before { left: 20px; }
   
   h3 { font-size: 1.4rem; color: var(--primary-white); margin-top: 1rem; }
   h4 { font-size: 1rem; color: rgba(255, 255, 255, 0.7); margin: 0.5rem 0; }
   p { font-size: 0.9rem; font-style: italic; }
+
+  /* --- FIX: Ensure text wraps correctly --- */
+  @media (max-width: 768px) {
+    h3, h4, p {
+      word-wrap: break-word;
+    }
+  }
 `;
 
 const Education = () => {
@@ -103,7 +123,7 @@ const Education = () => {
       </Fade>
       <Timeline>
         {educationData.map((edu, index) => (
-          <Fade key={index} direction={index % 2 === 0 ? "left" : "right"} duration={600} triggerOnce>
+          <Fade key={index} direction="up" duration={600} triggerOnce>
             <TimelineItem>
               <TimelineContent>
                 <h3>{edu.degree}</h3>
