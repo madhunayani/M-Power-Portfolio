@@ -85,7 +85,7 @@ const Footer = () => {
     { name: 'GitHub', url: 'https://github.com/madhunayani', icon: <FaGithub /> },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/madhunayani/', icon: <FaLinkedin /> },
     // --- FIX: Using the correct icon and name for "X" ---
-    { name: 'X', url: '#', icon: <FaXTwitter /> },
+    { name: 'X', url: 'https://x.com/Mad_hu17', icon: <FaXTwitter /> },
   ];
 
   return (
