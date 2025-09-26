@@ -31,13 +31,13 @@ export const mernProjects = [
   {
     title: "InstaClone Social Media App",
     description: "A full-stack social media platform inspired by Instagram, built with the MERN stack. It features secure authentication, scalable APIs, and a responsive React frontend, allowing users to create posts, like, comment, and follow other users for seamless engagement.",
-    techStack: ["React, Node.js, Express.js, MongoDB, RESTful APIs, JWT Authentication, React Router, State Management, Responsive Design, Asynchronous JavaScript, CSS, Git, GitHub"],
+    techStack: ["React", "Node.js", "Express.js", "MongoDB", "RESTful APIs", "JWT Authentication", "React Router", "State Management", "Responsive Design", "Asynchronous JavaScript", "CSS", "Git", "GitHub"],
     codeLink: "https://github.com/madhunayani/Insta-Share.git",
   },
   {
     title: "User Management Dashboard",
     description: "A sleek and responsive User Management Dashboard built with React and Vite. Features full CRUD functionality, dynamic search, sorting, and pagination.",
-    techStack: ["React, JavaScript (ES6+), State Management (Hooks), Responsive Design, CSS (Flexbox/Grid), CSS-in-JS, Dynamic Search & Filtering, Git, GitHub"],
+    techStack: ["React", "JavaScript (ES6+)", "State Management (Hooks)", "Responsive Design", "CSS (Flexbox/Grid)", "CSS-in-JS", "Dynamic Search & Filtering", "Git", "GitHub"],
     codeLink: "https://github.com/madhunayani/AJACKUS-User-Dashboard.git",
   },
   {
