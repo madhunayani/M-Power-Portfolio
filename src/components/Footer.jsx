@@ -74,7 +74,7 @@ const CopyrightNotice = styled.p`
 const Footer = () => {
   const navLinks = [
     { name: 'The Ignition 💥', href: '#ignition' },
-    { name: "The Driver's Seat 💺", href: '#drivers-seat' },
+    { name: "The Driver's Seat 💺", href: '#driver-seat' },
     { name: 'The Test Bench 🛋', href: '#test-bench' },
     { name: 'The Garage 🛠️', href: '#garage' },
     { name: 'The Blueprint 🗺️', href: '#blueprint' },
@@ -82,8 +82,8 @@ const Footer = () => {
   ];
 
   const socialMediaLinks = [
-    { name: 'GitHub', url: '#', icon: <FaGithub /> },
-    { name: 'LinkedIn', url: '#', icon: <FaLinkedin /> },
+    { name: 'GitHub', url: 'https://github.com/madhunayani', icon: <FaGithub /> },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/madhunayani/', icon: <FaLinkedin /> },
     // --- FIX: Using the correct icon and name for "X" ---
     { name: 'X', url: '#', icon: <FaXTwitter /> },
   ];
