@@ -103,7 +103,7 @@ const About = () => {
         <TextContent>
           <Fade direction="up" duration={500} triggerOnce>
             <h2>The Driver's Seat 🏁</h2>
-            <p>I'm a Full Stack Developer who thrives at the intersection of high-performance code and elegant design. My toolkit is the MERN stack, but my philosophy is drawn from the world of precision automotive engineering. I build robust, scalable, and intelligent web applications that are built to perform under pressure.</p>
+            <p>I'm a Full Stack Developer and AI trailblazer with Gen AI horsepower, engineering web apps the way automakers build supercars—every line of code is turbocharged for maximum speed, precision, and elegance. My MERN toolkit runs like a finely-tuned engine, optimized for fierce acceleration and relentless scalability. Crafted to perform under peak pressure, my systems don’t just run—they roar past limits, fusing the intelligence of cutting-edge AI with the art of automotive innovation. If adrenaline-fueled innovation gives you a rush, buckle up for a ride into the future.</p>
             <DownloadButton href={resumeFile} download="Madhu_Nayani_Resume.pdf">
               The Driver Dossier 📂
             </DownloadButton>

@@ -80,7 +80,7 @@ const Hero = () => {
       <Fade direction="up" triggerOnce duration={600} delay={100}>
         <Title>MADHU SAI HEMANTH NAYANI</Title>
         <Subtitle>
-          MERN Stack & Data Science Developer with an Engineer's precision and a Gearhead's passion. I don't just write code—I engineer high-performance digital experiences.
+          MERN Stack & AI Developer with an Engineer's precision and a Gearhead's passion. I don't just write code—I engineer high-performance digital experiences.
         </Subtitle>
         <CTAButton href="#garage" className="btn">
           View The Garage
