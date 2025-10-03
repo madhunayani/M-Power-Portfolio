@@ -75,7 +75,7 @@ const Footer = () => {
   const navLinks = [
     { name: 'The Ignition 💥', href: '#ignition' },
     { name: "The Driver's Seat 💺", href: '#driver-seat' },
-    { name: 'The Test Bench 🛋', href: '#test-bench' },
+    { name: 'The Test Bench 🏭', href: '#test-bench' },
     { name: 'The Garage 🛠️', href: '#garage' },
     { name: 'The Blueprint 🗺️', href: '#blueprint' },
     { name: 'The Pitstop ⛽', href: '#pitstop' },

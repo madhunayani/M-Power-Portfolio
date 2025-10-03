@@ -94,8 +94,8 @@ const SkillsGrid = styled.div`
 `;
 
 const About = () => {
-  const mernSkills = [ "React", "Node.js", "Express.js", "MongoDB", "JavaScript", "REST API", "Authentication", "Authorization", "JWT", "OAuth 2.0", "HTML5", "CSS3", "Git", "GitHub", "Responsive Design", "Redux", "Docker", "CI/CD", "AWS", "Vercel", "Postman", "ES6+", ];
-  const dataScienceSkills = [ "Python", "LangChain", "RAG", "Ollama", "OpenAI API", "LlamaIndex", "BERT", "GPT", "LLaMA", "Prompt Engineering", "NumPy", "Pandas", "Scikit-learn", "TensorFlow", "PyTorch", "CNN", "RNN", "LSTM", "Vector Databases", "Chroma DB", "FAISS", "Matplotlib", "Azure AI Search", ];
+  const mernSkills = [ "React", "Node.js", "Express.js", "MongoDB", "JavaScript", "REST API", "Authentication", "Authorization", "JWT", "OAuth 2.0", "HTML5", "CSS3", "Git", "GitHub", "Responsive Design", "Docker", "CI/CD", "AWS", "Vercel", "Postman", "ES6+", ];
+  const dataScienceSkills = [ "Python", "LangChain", "RAG", "Ollama", "OpenAI API", "LlamaIndex", "BERT", "GPT", "LLaMA", "Prompt Engineering", "TensorFlow", "CNN", "RNN", "LSTM", "Vector Databases", "Chroma DB", "FAISS", "Azure AI Search", ];
 
   return (
     <AboutSectionWrapper id="driver-seat">

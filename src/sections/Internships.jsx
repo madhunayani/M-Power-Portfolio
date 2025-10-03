@@ -61,7 +61,7 @@ const Internships = () => {
   return (
     <InternshipsContainer id="test-bench">
       <Fade direction="up" duration={500} triggerOnce>
-        <SectionTitle>The Test Bench 🧪</SectionTitle>
+        <SectionTitle>The Test Bench 🏭</SectionTitle>
         <InternshipCard>
           <InternshipHeader>
             <InternshipTitle>AWS APAC Solutions Architecture Virtual Experience</InternshipTitle>

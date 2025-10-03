@@ -212,12 +212,12 @@ const Header = () => {
         </Logo>
         
         <NavTitle $show={showTitle}>
-          The Code Garage 🔧💻
+          The Code Garage🔧💻
         </NavTitle>
         
         <DesktopNavLinks>
           <a href="#driver-seat">The Driver's Seat 🏁</a>
-          <a href="#test-bench">The Test Bench 🧪</a>
+          <a href="#test-bench">The Test Bench 🏭</a>
           <a href="#garage">The Garage 🛠️</a>
           <a href="#blueprint">The Blueprint 📐</a>
           <a href="#pitstop">The Pitstop 🏎️</a>
@@ -230,7 +230,7 @@ const Header = () => {
       
       <MobileNav className={isOpen ? 'open' : ''}>
           <a href="#driver-seat" onClick={() => setIsOpen(false)}>The Driver's Seat 🏁</a>
-          <a href="#test-bench" onClick={() => setIsOpen(false)}>The Test Bench 🧪</a>
+          <a href="#test-bench" onClick={() => setIsOpen(false)}>The Test Bench 🏭</a>
           <a href="#garage" onClick={() => setIsOpen(false)}>The Garage 🛠️</a>
           <a href="#blueprint" onClick={() => setIsOpen(false)}>The Blueprint 📐</a>
           <a href="#pitstop" onClick={() => setIsOpen(false)}>The Pitstop 🏎️</a>
