@@ -2,7 +2,7 @@
 
 Welcome to the digital garage where high-performance code meets precision engineering. This isn't just a portfolio; it's a showroom of full-stack applications and AI-driven experiences, each built with the power of the MERN stack and the passion of a true gearhead.
 
-**[Take it for a Spin ➡️ Live Demo](https://your-live-demo-link.com)**
+**[Take it for a Spin ➡️ Live Demo](https://madhunayani-portfolio.vercel.app/)**
 
 ---
 
@@ -75,3 +75,4 @@ Got a project in mind or just want to talk tech? Let's connect.
 ---
 *This project was engineered with passion by Madhu Sai Hemanth Nayani.*
 ```
+
