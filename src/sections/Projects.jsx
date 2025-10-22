@@ -1,24 +1,26 @@
-// In your Projects.jsx file
-
 import React from 'react';
 import styled from 'styled-components';
-import { mernProjects, dataScienceProjects } from '../data'; // Assuming you have this
+import { mernProjects, dataScienceProjects } from '../data';
 import ProjectCard from '../components/ProjectCard';
-import { Fade } from 'react-awesome-reveal';
-import { FaGithub } from 'react-icons/fa'; // Import the GitHub icon
+import { motion } from 'framer-motion';
+import { FaGithub } from 'react-icons/fa';
+import { SplitText } from '../components/animations/SplitText';
+import { GlitchText } from '../components/animations/GlitchText';
 
 const ProjectsContainer = styled.section`
   padding: 6rem 4%;
-  /* Any background styles for this section would go here */
 `;
 
-const SectionTitle = styled.h2`
+const MainTitleWrapper = styled(motion.div)`
   font-family: var(--font-display);
-  color: var(--accent-blue);
-  font-size: 3rem;
+  font-size: 4rem;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
   text-transform: uppercase;
+  
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
 `;
 
 const CategoryWrapper = styled.div`
@@ -30,8 +32,12 @@ const CategoryTitle = styled.h3`
   font-size: 2rem;
   text-align: center;
   margin-bottom: 3rem;
-  color: var(--primary-white);
+  background: linear-gradient(90deg, #81C4FF, #E7222E);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-transform: uppercase;
+  font-weight: 700;
 `;
 
 const ProjectsGrid = styled.div`
@@ -41,77 +47,143 @@ const ProjectsGrid = styled.div`
   align-items: stretch;
 `;
 
-// --- NEW: Styled-component for the GitHub button ---
-const GitHubButton = styled.a`
+const GitHubButton = styled(motion.a)`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  margin: 4rem auto 0; /* Centers the button and adds space above */
-  padding: 1rem 2rem;
-  max-width: 300px; /* Sets a max width for the button */
-  
-  border: 1px solid var(--accent-blue);
+  margin: 4rem auto 0;
+  padding: 1.2rem 2.5rem;
+  max-width: 350px;
+  border: 3px solid #81C4FF;
   background-color: transparent;
-  color: var(--accent-blue);
-  
+  color: #81C4FF;
   text-decoration: none;
   font-family: 'Roboto Condensed', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
   
-  transition: all 0.3s ease;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #81C4FF, #16588E, #E7222E);
+    transition: left 0.5s ease;
+    z-index: -1;
+  }
+  
+  &:hover::before {
+    left: 0;
+  }
 
   &:hover {
-    background-color: var(--accent-blue);
-    color: #0d0d0d; /* Your dark background color for contrast */
-    box-shadow: var(--glow-blue);
+    color: #0d0d0d;
+    border-color: #E7222E;
+    box-shadow: 0 5px 30px rgba(129, 196, 255, 0.6), 0 0 50px rgba(231, 34, 46, 0.4);
     transform: translateY(-3px);
   }
 `;
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+      ease: 'easeOut'
+    }
+  })
+};
+
 const Projects = () => {
   return (
     <ProjectsContainer id="garage">
-      <Fade direction="up" duration={500} triggerOnce>
-        <SectionTitle>The Garage 🛠️</SectionTitle>
-      </Fade>
+      {/* MAIN TITLE WITH GLITCH ANIMATION - SAME AS "THE PITSTOP" */}
+      <MainTitleWrapper
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <GlitchText text="The Garage" />
+      </MainTitleWrapper>
 
+      {/* Data Science Projects */}
       <CategoryWrapper>
-        <Fade direction="up" delay={200} duration={500} triggerOnce>
-          <CategoryTitle>Data Science & AI Initiatives</CategoryTitle>
-        </Fade>
+        <CategoryTitle>
+          <SplitText 
+            text="Data Science & AI Initiatives" 
+            type="words" 
+            duration={0.8}
+          />
+        </CategoryTitle>
         <ProjectsGrid>
           {dataScienceProjects.map((project, index) => (
-            <Fade key={index} direction="up" delay={index * 100} duration={500} triggerOnce>
-              <ProjectCard project={project} />
-            </Fade>
+            <motion.div
+              key={index}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={cardVariants}
+            >
+              <ProjectCard project={project} showLiveDemo={false} />
+            </motion.div>
           ))}
         </ProjectsGrid>
       </CategoryWrapper>
       
+      {/* MERN Stack Projects */}
       <CategoryWrapper>
-        <Fade direction="up" delay={200} duration={500} triggerOnce>
-          <CategoryTitle>MERN Stack Deployments</CategoryTitle>
-        </Fade>
+        <CategoryTitle>
+          <SplitText 
+            text="MERN Stack Deployments" 
+            type="words" 
+            duration={0.8}
+          />
+        </CategoryTitle>
         <ProjectsGrid>
           {mernProjects.map((project, index) => (
-            <Fade key={index} direction="up" delay={index * 100} duration={500} triggerOnce>
-              <ProjectCard project={project} />
-            </Fade>
+            <motion.div
+              key={index}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={cardVariants}
+            >
+              <ProjectCard project={project} showLiveDemo={true} />
+            </motion.div>
           ))}
         </ProjectsGrid>
       </CategoryWrapper>
 
-      {/* --- NEW: GitHub button added here --- */}
-      <Fade direction="up" duration={500} delay={300} triggerOnce>
-        {/* IMPORTANT: Replace with your actual GitHub URL */}
-        <GitHubButton href="https://github.com/madhunayani" target="_blank" rel="noopener noreferrer">
-          <FaGithub />
-          View All Projects on GitHub
-        </GitHubButton>
-      </Fade>
+      <GitHubButton 
+        href="https://github.com/madhunayani" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.3 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <FaGithub size={24} />
+        View All Projects on GitHub
+      </GitHubButton>
     </ProjectsContainer>
   );
 };
